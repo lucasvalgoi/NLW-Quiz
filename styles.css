@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*, :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+    /* aplicação de uma regra em que serve para vários navegadores para fazer com que a fonte fique mais fina na questão da beleza da fonte */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+/* é uma boa prática evitar ficar modificando/estilizando muito o body, html entre outras tags, e para isso, pode-se criar tags como o main, footer, header etc, e ir estilizando através dessa tag*/
+
+main {
+    padding: 20px;
+    max-width: 640px;
+    margin: 0 auto 64px;
+}
+
+header {
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #344155;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header h4 {
+    font-size: 16px;
+}
+
+.quiz-item {
+    margin-top: 24px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+}
+
+.quiz-item h3 {
+    padding: 16px;
+}
+
+.quiz-item dl {
+    padding: 20px 24px;
+
+    display: grid;
+    gap: 8px;
+}
+
+.quiz-item dl dt {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+
+#acertos {
+    text-align: center;
+    background-color: #a3e635;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 12px;
+}
