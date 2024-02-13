@@ -15,6 +15,10 @@
 }
 /* é uma boa prática evitar ficar modificando/estilizando muito o body, html entre outras tags, e para isso, pode-se criar tags como o main, footer, header etc, e ir estilizando através dessa tag*/
 
+body {
+    background-color: #0f172a;
+}
+
 main {
     padding: 20px;
     max-width: 640px;
@@ -28,21 +32,63 @@ header {
 }
 
 header h1 {
+    margin-top: 20px;
     font-size: 30px;
+    color: #f1f5f9;
 }
 
 header h4 {
+    margin-top: 16px;
     font-size: 16px;
+    color: #f1f5f9;
+}
+
+#quiz {
+    /* essa propriedade vai servir para contar quantos elementos eu tenho nesse meu id, ele vai fazer isso (com o 'reset')"iniciando" um contador, e para fazer ele contar eu vou precisar fazer o que está na linha 62:'.quiz-item h3:before'*/
+    counter-reset: quiz-item;
 }
 
 .quiz-item {
     margin-top: 24px;
     border: 1px solid #475569;
     border-radius: 6px;
+
+    /* com o 'overflow'(do inglês, trasnbordar) e o 'hidden' eu vou estar dizendo que a parte em que o transbordar do '.quiz-item' vai ser escondido, para não aparecer e deixar o visual mais bonito*/
+    overflow: hidden;
 }
 
 .quiz-item h3 {
-    padding: 16px;
+    padding: 16px 20px;
+    color: #e2e8f0;
+
+    /* utilização do 'display:flex' e suas propriedades para deixar os elementos do h3 alinhados*/
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #1e293b;
+}
+
+.quiz-item h3:before {
+    /* Criação do counter das Perguntas */
+
+    /* esse 'counter-increment' vai Incrementar na conta mais um(+1), toda vez que aparecer um h3 */
+    counter-increment: quiz-item;
+    /* aqui eu vou colocar como content o meu contador e usar o 'counter' colocando dentro dele o nome que eu escolhi no meu 'conuter-reset'*/
+    content: counter(quiz-item);
+
+    /* Estilização do counter */
+    /* como tenho que ter um display, e eu preciso alinhar o número do 'counter' ao meio, eu vou usar o 'flex' e suas propriedades*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /*aqui eu vou estar dizendo que eu não quero que haja um encurtamento ou que o meu elemento se espiche enquanto eu use o 'display:flex'*/
+
+    background-color: #475569;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border-radius: 50%;
 }
 
 .quiz-item dl {
@@ -56,6 +102,42 @@ header h4 {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0;
+
+    /* usando o 'display:flex' os meus elementos da tag 'dt' vão ser colocados um do lado do outro, e assim eu tenho a possibilidade de usar a propriedade 'align-items:center' para centralizá-los um ao lado do outro*/
+    display: flex;
+    align-items: center;
+    gap: 8px; /* posso usar a propriedade 'gap' (para dar um espacamento entre os elementos) no grid e no flex*/
+
+    color: #e2e8f0;
+}
+
+input {
+    /* essa propriedade 'all:unset' vai pegar todas as propriedades e tirar suas definições/configurações (como se fosse um reset), por isso, nós quem temos que colocar definir da forma que queremos que fique*/
+    all: unset;
+    border: 1px solid #94a3b8;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    /* essas propriedades foram colocadas aqui, pois como eu criei um elemento -com conteúdo vazio dentro da tag 'input'- no 'input:checked:before' assim eu consigo centralizar a cor quando o input é "checked"*/
+    display: flex;
+    align-items: center;/*essa propriedade vai sempre 'cuidar' da parte horizontal(eixo X)*/
+    justify-content: center;/*essa propriedade vai sempre 'cuidar' da parte vertical(eixo Y)*/
+    flex-shrink: 0;
+}
+
+/* sempre quando eu coloco o símbolo ':' eu estou ativando/usando um pseudo-selector, que tem várias funções, como o 'checked', 'before', 'after' entre muitos outros*/
+input:checked {
+    border: 1px solid #a3e635;
+}
+
+/* com o ':before' e o 'content:"";'(vazio) foi colocado uma estratégia em que eu criei um elemento Antes do conteúdo do meu INPUT(que não tem conteúdo nenhum dentro). Assim, com essa estratégia, é possível colocar outras propriedades CSS*/
+input:checked:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #a3e635;
+    border-radius: 50%;
 }
 
 #acertos {
