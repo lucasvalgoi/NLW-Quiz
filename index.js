@@ -78,7 +78,7 @@ const perguntas = [
             "Verifica se um valor é numérico",
             "Verifica se um valor é uma string",
         ],
-        correta: 1
+        correta: 0
     },
     {
         pergunta: "Qual é a maneira correta de escrever um loop 'for' em JavaScript?",
