@@ -74,7 +74,7 @@ const perguntas = [
     {
         pergunta: "O que o método 'isNaN()' faz em JavaScript?",
         respostas: [
-            "Verifica se um valor é do tipo 'NaN'",
+            "Verifica se um valor não é um número",
             "Verifica se um valor é numérico",
             "Verifica se um valor é uma string",
         ],
